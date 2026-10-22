@@ -28,3 +28,48 @@ if (formLaundry) {
         formLaundry.reset(); // Mengosongkan form
     });
 }
+// ==========================================
+// 2. FETCH API (Mengambil Data JSON)
+// ==========================================
+async function tampilkanProduk() {
+    const container = document.getElementById('product-container');
+    if (!container) return;
+
+    // Loading status
+    container.innerHTML = '<p>Sedang memuat data produk dari server...</p>';
+
+    try {
+        const response = await fetch('https://dummyjson.com/products');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        
+        // Kosongkan loading
+        container.innerHTML = '';
+
+        // Tampilkan 4 produk pertama
+        data.products.slice(0, 4).forEach(produk => {
+            const divProduk = document.createElement('div');
+            divProduk.classList.add('product-item');
+            
+            // Minimal menampilkan nama (title) dan harga (price)
+            divProduk.innerHTML = `
+                <img src="${produk.thumbnail}" alt="${produk.title}">
+                <h3>${produk.title}</h3>
+                <p>${produk.category}</p>
+                <div class="product-price">$${produk.price}</div>
+            `;
+            
+            container.appendChild(divProduk);
+        });
+
+    } catch (error) {
+        container.innerHTML = `<p style="color: red;">Gagal memuat produk: ${error.message}</p>`;
+    }
+}
+
+// Panggil fitur fetch saat halaman dimuat
+tampilkanProduk();
