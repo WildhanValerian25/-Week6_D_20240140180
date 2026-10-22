@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Kilat - Cepat & Bersih</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Laundry Kilat</div>
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#pesan">Form Pemesanan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section Form (DOM & Event Handling) -->
+        <section id="pesan" class="form-section">
+            <h2>Formulir Pemesanan</h2>
+            <p>Pesan layanan laundry dengan cepat dan mudah.</p>
+            
+            <form id="laundryForm" class="card">
+                <div class="input-group">
+                    <label for="namaLengkap">Nama Lengkap</label>
+                    <input type="text" id="namaLengkap" placeholder="Masukkan nama Anda..." required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="nomorWA">Nomor WhatsApp</label>
+                    <input type="number" id="nomorWA" placeholder="Contoh: 08123456789" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="paketLaundry">Paket Layanan</label>
+                    <select id="paketLaundry" required>
+                        <option value="">-- Pilih Paket --</option>
+                        <option value="Cuci Komplit">Cuci Komplit (Reguler)</option>
+                        <option value="Cuci Express">Cuci Express (1 Hari Jadi)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Kirim Pesanan</button>
+            </form>
+            
+            <!-- Tempat menampilkan pesan sukses/error -->
+            <div id="pesanOutput" class="pesan-output"></div>
+        </section>
+
+        <!-- Section Fetch API -->
+        <section class="api-section">
+            <h2>Produk Tambahan (Dari Fetch API)</h2>
+            <p>Rekomendasi perlengkapan dari mitra kami.</p>
+            
+            <!-- Tempat menampilkan loading, error, dan data produk -->
+            <div id="product-container" class="product-grid"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
