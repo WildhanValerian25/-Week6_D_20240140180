@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry Kilat - Cepat & Bersih</title>
+    <title>Laundry Kilat - Tugas Week 6</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,48 +19,53 @@
     </header>
 
     <main>
-        <!-- Section Form (DOM & Event Handling) -->
+        <!-- Bagian 1: DOM & Event Handling (Form) -->
         <section id="pesan" class="form-section">
-            <h2>Formulir Pemesanan</h2>
-            <p>Pesan layanan laundry dengan cepat dan mudah.</p>
+            <div class="section-header">
+                <h2>Formulir Pemesanan</h2>
+                <p>Lengkapi detail di bawah ini. Tanda <span class="wajib">*</span> wajib diisi.</p>
+            </div>
             
             <form id="laundryForm" class="card">
                 <div class="input-group">
-                    <label for="namaLengkap">Nama Lengkap</label>
-                    <input type="text" id="namaLengkap" placeholder="Masukkan nama Anda..." required>
+                    <label for="namaLengkap">Nama Lengkap <span class="wajib">*</span></label>
+                    <input type="text" id="namaLengkap" placeholder="Masukkan nama lengkap Anda" required>
                 </div>
                 
                 <div class="input-group">
-                    <label for="nomorWA">Nomor WhatsApp</label>
+                    <label for="nomorWA">Nomor WhatsApp <span class="wajib">*</span></label>
                     <input type="number" id="nomorWA" placeholder="Contoh: 08123456789" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="paketLaundry">Paket Layanan</label>
+                    <label for="paketLaundry">Paket Layanan <span class="wajib">*</span></label>
                     <select id="paketLaundry" required>
-                        <option value="">-- Pilih Paket --</option>
+                        <option value="" disabled selected>-- Pilih jenis paket --</option>
                         <option value="Cuci Komplit">Cuci Komplit (Reguler)</option>
                         <option value="Cuci Express">Cuci Express (1 Hari Jadi)</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn-primary">Kirim Pesanan</button>
+                <button type="submit" class="btn-primary">Kirim Pesanan Sekarang</button>
             </form>
             
-            <!-- Tempat menampilkan pesan sukses/error -->
+            <!-- Tempat menampilkan pesan hasil form (DOM) -->
             <div id="pesanOutput" class="pesan-output"></div>
         </section>
 
-        <!-- Section Fetch API -->
+        <!-- Bagian 2: Fetch API DummyJSON -->
         <section class="api-section">
-            <h2>Produk Tambahan (Dari Fetch API)</h2>
-            <p>Rekomendasi perlengkapan dari mitra kami.</p>
+            <div class="section-header">
+                <h2>Produk Tambahan (Dari Fetch API)</h2>
+                <p>Rekomendasi perlengkapan dari mitra kami.</p>
+            </div>
             
-            <!-- Tempat menampilkan loading, error, dan data produk -->
+            <!-- Tempat hasil Fetch API dimunculkan -->
             <div id="product-container" class="product-grid"></div>
         </section>
     </main>
 
+    <!-- Panggil Javascript di paling bawah -->
     <script src="script.js"></script>
 </body>
 </html>
