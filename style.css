@@ -176,10 +176,11 @@ main {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    /* Ubah bagian ini agar membagi rata menjadi 4 kolom */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 24px;
     margin-top: 24px;
-}
+}s
 
 .product-item {
     background: var(--bg-card);
